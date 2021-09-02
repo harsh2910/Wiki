@@ -1,0 +1,19 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block body %}
+
+    {% if message %}
+        <div>{{ message }}</div>
+    {% endif %}
+    <form action="{% url 'edit' %}" method="post">
+        {% csrf_token %}
+        <textarea name = "title" style="height: 40px; padding: 5px; margin:10px">{{ title }}</textarea><br>
+        <textarea rows = "2" cols = "10" name = "content" style="height: 400px; padding: 5px; margin:10px">{{ content }}</textarea><br>
+        <input type="submit" value="SAVE" style="margin: 10px; color:white; background-color:blue; border: 0px">
+    </form>
+   
+{% endblock %}
